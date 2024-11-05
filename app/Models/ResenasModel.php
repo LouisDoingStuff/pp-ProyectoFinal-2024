@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class VinosModel extends Model
+class ResenasModel extends Model
 {
-    protected $table            = 'vinos';
-    protected $primaryKey       = 'id_vino';
+    protected $table            = 'resenas';
+    protected $primaryKey       = 'id_resena';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_vino', 'nombre', 'anio', 'precio', 'cantidad_stock', 'id_categoria','id_proveedor'];
+    protected $allowedFields    = ['id_resena', 'id_vino', 'id_cliente', 'puntuacion', 'comentario'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -23,4 +23,5 @@ class VinosModel extends Model
     // Dates
     protected $useTimestamps = false;
 }
+
 ?>
