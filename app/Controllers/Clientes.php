@@ -31,17 +31,76 @@ class Clientes extends BaseController
 
     /**
      * GUARDAR NUEVO CLIENTE
+     *
+     * @return ResponseInterface
      */
+    public function guardarCliente()
+    {
+        $clientes = new ClientesModel();
+        $datos = [
+            'id_cliente' => $this->request->getPost('id_cliente'),
+            'nombre' => $this->request->getPost('nombre'),
+            'apellido' => $this->request->getPost('apellido'),
+            'email' => $this->request->getPost('email'),
+            'telefono' => $this->request->getPost('telefono'),
+            'direccion' => $this->request->getPost('direccion'),
+            'contrasena' => $this->request->getPost('contrasena'),
+
+        ];
+        print_r($datos);
+        $clientes->insert($datos);
+        return redirect()->route('ver_cl');
+    }
 
     /**
-     * ELIMINAR CLIENTES
+     * ELIMINAR CLIENTE
+     *
+     * @param int|string|null $id
+     *
+     * @return ResponseInterface
      */
+    public function eliminarCliente($id_cliente = null)
+    {
+        $clientes = new ClientesModel();
+        $clientes->delete(['id_cliente' => $id_cliente]);
+        return redirect()->route('ver_cl');
+    }
 
     /**
-     * BUSCAR CLIENTES
+     * BUSCAR CLIENTE
+     *
+     * @param int|string|null $id
+     *
+     * @return ResponseInterface
      */
+    public function buscarCliente($id_cliente = null)
+    {
+        $clientes = new ClientesModel();
+        $datos['datos'] = $clientes->where(['id_cliente' => $id_cliente])->first();
+        return view('Clientes/form_modificar_cl', $datos);
+    }
 
     /**
-     * MODIFICAR CLIENTES
+     * MODIFICAR CLIENTE
+     *
+     * @param int|string|null $id
+     *
+     * @return ResponseInterface
      */
+    public function modificarCliente()
+    {
+        $clientes = new ClientesModel();
+
+        $datos = [
+            'id_cliente' => $this->request->getPost('id_cliente'),
+            'nombre' => $this->request->getPost('nombre'),
+            'apellido' => $this->request->getPost('apellido'),
+            'email' => $this->request->getPost('email'),
+            'telefono' => $this->request->getPost('telefono'),
+            'direccion' => $this->request->getPost('direccion'),
+            'contrasena' => $this->request->getPost('contrasena'),
+        ];
+        $clientes->update($datos['id_cliente'], $datos);
+        return redirect()->route('ver_cl');
+    }
 }

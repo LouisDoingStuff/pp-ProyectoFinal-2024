@@ -49,3 +49,7 @@ $routes->post('modificar_vt','Ventas::modificarVenta');
 ////////////////Clientes/////////////////////////
 $routes->get('ver_cl','Clientes::index');
 $routes->get('nuevo_cl','Clientes::nuevoCliente');
+$routes->post('guardar_cl','Clientes::guardarCliente');
+$routes->get('eliminar_cl/(:num)','Clientes::eliminarCliente/$1');
+$routes->get('buscar_cl/(:num)','Clientes::buscarCliente/$1');
+$routes->post('modificar_cl','Clientes::modificarCliente');
