@@ -10,6 +10,7 @@ $routes->get('/', 'Home::index');
 $routes->resource('empleados', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('categorias', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('vinos', ['placeholder' =>'(:num)', 'except' => 'show']);
+$routes->resource('ventas', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('clientes', ['placeholder' =>'(:num)', 'except' => 'show']);
 
 
@@ -36,6 +37,14 @@ $routes->post('guardar_vn','Vinos::guardarVino');
 $routes->get('eliminar_vn/(:num)','Vinos::eliminarVino/$1');
 $routes->get('buscar_vn/(:num)','Vinos::buscarVino/$1');
 $routes->post('modificar_vn','Vinos::modificarVino');
+
+////////////////Ventas/////////////////////////
+$routes->get('ver_vt','Ventas::index');
+$routes->get('nueva_vt','Ventas::nuevaVenta');
+$routes->post('guardar_vt','Ventas::guardarVenta');
+$routes->get('eliminar_vt/(:num)','Ventas::eliminarVenta/$1');
+$routes->get('buscar_vt/(:num)','Ventas::buscarVenta/$1');
+$routes->post('modificar_vt','Ventas::modificarVenta');
 
 ////////////////Clientes/////////////////////////
 $routes->get('ver_cl','Clientes::index');
