@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 
 $routes->resource('empleados', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('categorias', ['placeholder' =>'(:num)', 'except' => 'show']);
+$routes->resource('vinos', ['placeholder' =>'(:num)', 'except' => 'show']);
 
 
 ///////////////Categorías/////////////////////
@@ -26,3 +27,11 @@ $routes->post('guardar_ep','Empleados::guardarEmpleado');
 $routes->get('eliminar_ep/(:num)','Empleados::eliminarEmpleado/$1');
 $routes->get('buscar_ep/(:num)','Empleados::buscarEmpleado/$1');
 $routes->post('modificar_ep','Empleados::modificarEmpleado');
+
+//////////////// Vinos/////////////////////////
+$routes->get('ver_vn','Vinos::index');
+$routes->get('nuevo_vn','Vinos::nuevoVino');
+$routes->post('guardar_vn','Vinos::guardarVino');
+$routes->get('eliminar_vn/(:num)','Vinos::eliminarVino/$1');
+$routes->get('buscar_vn/(:num)','Vinos::buscarVino/$1');
+$routes->post('modificar_vn','Vinos::modificarVino');
