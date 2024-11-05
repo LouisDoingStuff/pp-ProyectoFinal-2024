@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 
 $routes->resource('empleados', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('categorias', ['placeholder' =>'(:num)', 'except' => 'show']);
+$routes->resource('ventas', ['placeholder' =>'(:num)', 'except' => 'show']);
 
 
 ///////////////Categorías/////////////////////
@@ -26,3 +27,11 @@ $routes->post('guardar_ep','Empleados::guardarEmpleado');
 $routes->get('eliminar_ep/(:num)','Empleados::eliminarEmpleado/$1');
 $routes->get('buscar_ep/(:num)','Empleados::buscarEmpleado/$1');
 $routes->post('modificar_ep','Empleados::modificarEmpleado');
+
+///////////////Ventas//////////////////////
+$routes->get('ver_vt','Ventas::index');
+$routes->get('nueva_vt','Ventas::nuevaVenta');
+$routes->post('guardar_vt','Ventas::guardarVenta');
+$routes->get('eliminar_vt/(:num)','Ventas::eliminarVenta/$1');
+$routes->get('buscar_vt/(:num)','Ventas::buscarVenta/$1');
+$routes->post('modificar_vt','Ventas::modificarVenta');
