@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 
 $routes->resource('empleados', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('categorias', ['placeholder' =>'(:num)', 'except' => 'show']);
+$routes->resource('vinos', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('ventas', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('facturas', ['placeholder' =>'(:num)', 'except' => 'show']);
 
@@ -52,3 +53,16 @@ $routes->post('guardar_ft','Facturas::guardarFactura');
 $routes->get('eliminar_ft/(:num)','Facturas::eliminarFactura/$1');
 $routes->get('buscar_ft/(:num)','Facturas::buscarFactura/$1');
 $routes->post('modificar_ft','Facturas::modificarFactura');
+
+////////////////Clientes/////////////////////////
+$routes->get('ver_cl','Clientes::index');
+$routes->get('nuevo_cl','Clientes::nuevoCliente');
+$routes->post('guardar_cl','Clientes::guardarCliente');
+$routes->get('eliminar_cl/(:num)','Clientes::eliminarCliente/$1');
+$routes->get('buscar_cl/(:num)','Clientes::buscarCliente/$1');
+$routes->post('modificar_cl','Clientes::modificarCliente');
+
+////////////////Proveedor/////////////////////////
+$routes->get('ver_pv','Proveedores::index');
+$routes->get('nuevo_pv','Proveedores::nuevoProveedor');
+
