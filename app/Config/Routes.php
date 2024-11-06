@@ -75,3 +75,15 @@ $routes->post('modificar_cl','Clientes::modificarCliente');
 $routes->get('ver_pv','Proveedores::index');
 $routes->get('nuevo_pv','Proveedores::nuevoProveedor');
 
+////////////////Resenas//////////////////////////
+$routes->get('ver_rs','Resenas::index');
+$routes->get('ver_rsC','Resenas::indexC');
+$routes->get('nueva_rs','Resenas::nuevaResena');
+$routes->get('nueva_rsc','Resenas::nuevaResenaC');
+$routes->post('guardar_rs','Resenas::guardarResena');
+$routes->get('eliminar_rs/(:num)','Resenas::eliminarResena/$1');
+$routes->get('buscar_rs/(:num)','Resenas::buscarResena/$1');
+$routes->get('buscar_rsc/(:num)','Resenas::buscarResenaC/$1');
+$routes->post('modificar_rs','Resenas::modificarResena');
+$routes->post('guardar_rsc','Resenas::guardarResenaC');
+$routes->post('modificar_rsc','Resenas::modificarResenaC');
