@@ -12,7 +12,16 @@ $routes->resource('categorias', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('vinos', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('ventas', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('facturas', ['placeholder' =>'(:num)', 'except' => 'show']);
+$routes->resource('clientes', ['placeholder' =>'(:num)', 'except' => 'show']);
 
+//////////////////Inicio de Sesión///////////////////
+$routes->get('ver_login','IniciarSesion::verInicio');
+$routes->get('ver_login_clientes','IniciarSesion::verInicioC');
+$routes->post('iniciar_sesion','IniciarSesion::iniciarSesion');
+$routes->get('cerrar_sesion','IniciarSesion::cerrarSesion');
+$routes->get('ver_menu','IniciarSesion::verMenu');
+$routes->get('creditos_grupo','IniciarSesion::caratula');
+$routes->get('datos_incorrectos','IniciarSesion::datosIncorrectos');
 
 ///////////////Categorías/////////////////////
 $routes->get('ver_cat','Categorias::index');
