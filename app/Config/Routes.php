@@ -10,7 +10,7 @@ $routes->get('/', 'Home::index');
 $routes->resource('empleados', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('categorias', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('ventas', ['placeholder' =>'(:num)', 'except' => 'show']);
-
+$routes->resource('facturas', ['placeholder' =>'(:num)', 'except' => 'show']);
 
 
 ///////////////Categorías/////////////////////
@@ -44,3 +44,11 @@ $routes->post('guardar_vt','Ventas::guardarVenta');
 $routes->get('eliminar_vt/(:num)','Ventas::eliminarVenta/$1');
 $routes->get('buscar_vt/(:num)','Ventas::buscarVenta/$1');
 $routes->post('modificar_vt','Ventas::modificarVenta');
+
+////////////////Facturas/////////////////////////
+$routes->get('ver_ft','Facturas::index');
+$routes->get('nueva_ft','Facturas::nuevaFactura');
+$routes->post('guardar_ft','Facturas::guardarFactura');
+$routes->get('eliminar_ft/(:num)','Facturas::eliminarFactura/$1');
+$routes->get('buscar_ft/(:num)','Facturas::buscarFactura/$1');
+$routes->post('modificar_ft','Facturas::modificarFactura');
