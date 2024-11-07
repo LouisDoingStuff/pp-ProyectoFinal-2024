@@ -13,6 +13,9 @@ $routes->resource('vinos', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('ventas', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('facturas', ['placeholder' =>'(:num)', 'except' => 'show']);
 $routes->resource('clientes', ['placeholder' =>'(:num)', 'except' => 'show']);
+$routes->resource('resenas', ['placeholder' =>'(:num)', 'except' => 'show']);
+$routes->resource('proveedores', ['placeholder' =>'(:num)', 'except' => 'show']);
+
 
 //////////////////Inicio de Sesión///////////////////
 $routes->get('ver_login','IniciarSesion::verInicio');
@@ -74,6 +77,10 @@ $routes->post('modificar_cl','Clientes::modificarCliente');
 ////////////////Proveedor/////////////////////////
 $routes->get('ver_pv','Proveedores::index');
 $routes->get('nuevo_pv','Proveedores::nuevoProveedor');
+$routes->post('guardar_pv','Proveedores::guardarProveedor');
+$routes->get('eliminar_pv/(:num)','Proveedores::eliminarProveedor/$1');
+$routes->get('buscar_pv/(:num)','Proveedores::buscarProveedor/$1');
+$routes->post('modificar_pv','Proveedores::modificarProveedor');
 
 ////////////////Resenas//////////////////////////
 $routes->get('ver_rs','Resenas::index');

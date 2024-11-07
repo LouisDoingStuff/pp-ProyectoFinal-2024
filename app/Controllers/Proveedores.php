@@ -32,17 +32,70 @@ class Proveedores extends BaseController
 
     /**
      * GUARDAR NUEVO PROVEEDOR
+     *
+     * @return ResponseInterface
      */
+    public function guardarProveedor()
+    {
+        $proveedores = new ProveedoresModel();
+        $datos = [
+            'id_proveedor' => $this->request->getPost('id_proveedor'),
+            'nombre' => $this->request->getPost('nombre'),
+            'descripcion' => $this->request->getPost('descripcion'),
+            'estado' => $this->request->getPost('estado'),
+
+        ];
+        print_r($datos);
+        $proveedores->insert($datos);
+        return redirect()->route('ver_pv');
+    }
 
     /**
      * ELIMINAR PROVEEDOR
+     *
+     * @param int|string|null $id
+     *
+     * @return ResponseInterface
      */
+    public function eliminarProveedor($id_proveedor = null)
+    {
+        $proveedores = new ProveedoresModel();
+        $proveedores->delete(['id_proveedor' => $id_proveedor]);
+        return redirect()->route('ver_pv');
+    }
 
     /**
      * BUSCAR PROVEEDOR
+     *
+     * @param int|string|null $id
+     *
+     * @return ResponseInterface
      */
+    public function buscarProveedor($id_proveedor = null)
+    {
+        $proveedores = new ProveedoresModel();
+        $datos['datos'] = $proveedores->where(['id_proveedor' => $id_proveedor])->first();
+        return view('Proveedores/form_modificar_pv', $datos);
+    }
 
     /**
      * MODIFICAR PROVEEDOR
+     *
+     * @param int|string|null $id
+     *
+     * @return ResponseInterface
      */
+    public function modificarProveedor()
+    {
+        $proveedores = new ProveedoresModel();
+
+        $datos = [
+            'id_proveedor' => $this->request->getPost('id_proveedor'),
+            'nombre' => $this->request->getPost('nombre'),
+            'descripcion' => $this->request->getPost('descripcion'),
+            'estado' => $this->request->getPost('estado'),
+        ];
+        $proveedores->update($datos['id_proveedor'], $datos);
+        return redirect()->route('ver_pv');
+    }
 }
