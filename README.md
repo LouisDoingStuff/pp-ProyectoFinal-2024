@@ -13,4 +13,4 @@ Este proyecto es parte de la asignatura *Proyectos de Programación* de la *Escu
 
 ---
 
-Este proyecto fue desarrollado como parte del curso de Proyectos de Programación del Ciclo Escolar 2024.
+Este proyecto fue desarrollado como parte del curso de Proyectos de Programación, Sexto Semestre, del Profesorado en Enseñanza Media en Computación e Informática.
